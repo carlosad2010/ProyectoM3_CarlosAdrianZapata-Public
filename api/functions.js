@@ -4,7 +4,7 @@ import { toGeminiContents, getReplyText } from "../src/utils.js";
 // =====================================================
 // CONFIGURACIÓN: la decide el servidor, nunca el cliente
 // =====================================================
-const MODEL = "gemini-3.5-flash";
+const MODEL = "gemini-3.6-flash";
 const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`;
 const MAX_MESSAGES = 20; // límite del historial que se envía
 
