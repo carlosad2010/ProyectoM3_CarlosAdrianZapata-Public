@@ -1,0 +1,7 @@
+{
+  "liveServer.settings.root": "/src",
+  "liveServer.settings.file": "index.html",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "files.autoSave": "onFocusChange"
+}
