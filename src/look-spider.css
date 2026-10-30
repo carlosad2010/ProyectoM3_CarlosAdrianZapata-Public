@@ -1,0 +1,149 @@
+/* =====================================================
+   LOOK "SPIDER": capa visual opcional inspirada en los
+   sitios promocionales de Spider-Man (fondo oscuro, rojo
+   intenso, títulos condensados en mayúsculas y bordes que
+   brillan). No usa logos ni imágenes de terceros.
+
+   Se carga DESPUÉS de styles.css y solo sobrescribe estilos.
+   Para volver al diseño anterior: en index.html borra el
+   bloque "LOOK SPIDER" (comentario + 2 <link>) y este archivo.
+   ===================================================== */
+
+/* ---------- Tipografía (ambos modos) ---------- */
+.app-nav__brand-text,
+.app-title,
+.home__title,
+.about h1,
+.about h2 {
+  font-family: "Bebas Neue", Impact, "Arial Narrow", sans-serif;
+  font-weight: 400; /* Bebas Neue solo tiene un peso */
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.app-nav__brand-text {
+  font-size: 1.5rem;
+}
+
+.app-title {
+  font-size: 1.45rem;
+  line-height: 1;
+}
+
+.home__title {
+  font-size: 2rem; /* en celular cabe en una sola línea */
+  line-height: 1;
+}
+
+.about h1 {
+  font-size: 2.1rem;
+}
+
+.about h2 {
+  font-size: 1.5rem;
+  margin-top: 1.75rem;
+}
+
+/* Botones y links del menú en mayúsculas, estilo "póster" */
+.btn,
+.chat-send,
+.app-nav__link {
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.btn,
+.chat-send {
+  font-weight: 700;
+}
+
+/* Línea roja bajo el menú */
+.app-nav {
+  border-bottom: 2px solid var(--color-primary);
+}
+
+@media (min-width: 768px) {
+  .home__title {
+    font-size: 3.25rem;
+  }
+}
+
+/* ---------- Modo oscuro: la paleta del look ---------- */
+:root[data-theme="dark"] {
+  --color-bg: #05070d;
+  --color-chat-bg: #0a0f1c;
+  --color-surface: #0f1626;
+  --color-border: #26314a;
+  --color-nav: #070b14;
+  --color-text: #eef1f6;
+  --color-text-muted: #a3adbf;
+  --color-secondary: #ffffff; /* títulos en blanco, como en los pósters */
+  --glow-red: rgba(214, 40, 40, 0.45);
+}
+
+/* Fondo con un resplandor rojo arriba */
+:root[data-theme="dark"] body {
+  background:
+    radial-gradient(ellipse at 50% -10%, rgba(214, 40, 40, 0.22), transparent 55%),
+    var(--color-bg);
+}
+
+/* La tarjeta y las piezas clave con borde que brilla */
+@media (min-width: 768px) {
+  :root[data-theme="dark"] .app {
+    border: 1px solid var(--glow-red);
+    box-shadow:
+      0 0 0 1px rgba(214, 40, 40, 0.15),
+      0 0 32px rgba(214, 40, 40, 0.25),
+      0 20px 40px rgba(0, 0, 0, 0.6);
+  }
+}
+
+:root[data-theme="dark"] .btn,
+:root[data-theme="dark"] .chat-send {
+  box-shadow: 0 0 18px var(--glow-red);
+  transition:
+    background-color 0.2s,
+    box-shadow 0.2s;
+}
+
+:root[data-theme="dark"] .btn:hover,
+:root[data-theme="dark"] .chat-send:hover {
+  box-shadow: 0 0 28px rgba(214, 40, 40, 0.7);
+}
+
+:root[data-theme="dark"] .app-nav__link[aria-current="page"] {
+  box-shadow: 0 0 14px var(--glow-red);
+}
+
+:root[data-theme="dark"] .trait {
+  border-color: var(--glow-red);
+  background-color: rgba(214, 40, 40, 0.08);
+}
+
+:root[data-theme="dark"] .app-header__avatar {
+  box-shadow: 0 0 20px var(--glow-red);
+}
+
+/* la imagen de la portada con borde y brillo rojo */
+:root[data-theme="dark"] .home__hero {
+  border: 1px solid var(--glow-red);
+  box-shadow: 0 0 28px rgba(214, 40, 40, 0.45);
+}
+
+/* Burbujas de Spider-Man con un acento rojo a la izquierda */
+:root[data-theme="dark"] .message--character {
+  border-left: 3px solid var(--color-primary);
+}
+
+:root[data-theme="dark"] .chat-input:focus {
+  outline-color: var(--color-primary);
+}
+
+/* Sin animaciones de brillo si el usuario pidió menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+  :root[data-theme="dark"] .btn,
+  :root[data-theme="dark"] .chat-send {
+    transition: none;
+  }
+}

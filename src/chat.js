@@ -1,16 +1,22 @@
-import { getMessageMeta, isValidMessage } from "./utils.js";
+import { getMessageMeta, isValidMessage, formatTime } from "./utils.js";
 
 // =====================================================
 // 1. DATOS: el historial de la conversación
 // =====================================================
 // Está FUERA de las funciones para que se cree una sola vez
 // y no se pierda al ir a About y volver al chat.
+// time: momento en que se creó el mensaje (no se envía a Gemini)
 const messages = [
   {
     role: "model",
     text: "¡Ey, hola! 🕷️ Soy tu vecino amigable. ¿Qué aventura tenemos hoy?",
+    time: Date.now(),
   },
 ];
+
+// Iconos del botón de copiar (SVG en línea, usan el color del texto)
+const COPY_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>`;
+const CHECK_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>`;
 
 // =====================================================
 // 2. VISTA: el HTML del chat (lo usa app.js)
@@ -18,7 +24,7 @@ const messages = [
 export function chatView() {
   return `
         <header class="app-header">
-            <div class="app-header__avatar" aria-hidden="true">🕷️</div>
+            <div class="app-header__avatar" aria-hidden="true"><img src="/assets/spider-emblem.svg" alt="" /></div>
             <div>
                 <h1 class="app-title">Spider-Man</h1>
                 <p class="app-subtitle"><span class="status-dot"></span>En línea · Tu vecino amigable</p>
@@ -53,9 +59,53 @@ function createMessageElement(message) {
   p.classList.add("message__text");
   p.textContent = message.text;
 
-  // Bloque 5: meter span y p dentro del div, y devolverlo
-  div.append(span, p);
+  // Bloque 5: el pie → hora y, en las respuestas de Spider-Man, botón de copiar
+  const meta = document.createElement("div");
+  meta.classList.add("message__meta");
+
+  const time = document.createElement("time");
+  time.classList.add("message__time");
+  time.dateTime = new Date(message.time).toISOString();
+  time.textContent = formatTime(message.time);
+  meta.append(time);
+
+  if (message.role === "model") {
+    meta.append(createCopyButton(message.text));
+  }
+
+  // Bloque 6: meter todo dentro del div, y devolverlo
+  div.append(span, p, meta);
   return div;
+}
+
+// Botón miniatura que copia el texto de la respuesta al portapapeles
+function createCopyButton(text) {
+  const button = document.createElement("button");
+  button.type = "button";
+  button.classList.add("message__copy");
+  button.setAttribute("aria-label", "Copiar respuesta");
+  button.title = "Copiar respuesta";
+  button.innerHTML = COPY_ICON; // el ícono es nuestro, no texto del usuario
+
+  button.addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(text);
+
+      // confirmación: el ícono cambia a ✓ por un momento
+      button.innerHTML = CHECK_ICON;
+      button.classList.add("message__copy--done");
+      button.setAttribute("aria-label", "Respuesta copiada");
+      setTimeout(() => {
+        button.innerHTML = COPY_ICON;
+        button.classList.remove("message__copy--done");
+        button.setAttribute("aria-label", "Copiar respuesta");
+      }, 1500);
+    } catch (error) {
+      console.error("No se pudo copiar:", error);
+    }
+  });
+
+  return button;
 }
 
 // =====================================================
@@ -152,7 +202,7 @@ export function initChat() {
     if (!isValidMessage(input.value)) return; // no enviar mensajes vacíos
     const text = input.value.trim();
 
-    messages.push({ role: "user", text });
+    messages.push({ role: "user", text, time: Date.now() });
     renderMessages();
     input.value = "";
 
@@ -165,7 +215,7 @@ export function initChat() {
 
     try {
       const reply = await fetchReply();
-      messages.push({ role: "model", text: reply });
+      messages.push({ role: "model", text: reply, time: Date.now() });
     } catch (error) {
       console.error(error);
 

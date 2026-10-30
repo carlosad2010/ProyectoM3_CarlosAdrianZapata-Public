@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Favicon de SpiderChat: el mismo emblema original de la app sobre un círculo oscuro -->
+  <circle cx="32" cy="32" r="31" fill="#111827" stroke="#d62828" stroke-width="2"/>
+  <g fill="#ef3b3b" transform="translate(11.0 6.8) scale(0.42)">
+    <polygon points="46.2,37.3 26.4,23.2 30.0,3.0 21.6,24.8 41.8,42.7"/>
+    <polygon points="44.0,43.7 15.7,36.2 6.0,16.0 12.3,39.8 42.0,50.3"/>
+    <polygon points="41.8,53.7 12.2,66.3 6.0,94.0 15.8,69.7 44.2,60.3"/>
+    <polygon points="41.4,61.7 23.6,83.3 30.0,114.0 28.4,84.7 46.6,66.3"/>
+    <polygon points="58.2,42.7 78.4,24.8 70.0,3.0 73.6,23.2 53.8,37.3"/>
+    <polygon points="58.0,50.3 87.7,39.8 94.0,16.0 84.3,36.2 56.0,43.7"/>
+    <polygon points="55.8,60.3 84.2,69.7 94.0,94.0 87.8,66.3 58.2,53.7"/>
+    <polygon points="53.4,66.3 71.6,84.7 70.0,114.0 76.4,83.3 58.6,61.7"/>
+    <path d="M50 17 57 28 50 39 43 28Z"/>
+    <path d="M50 36C59 36 61 47 58.5 58L50 100 41.5 58C39 47 41 36 50 36Z"/>
+  </g>
+</svg>

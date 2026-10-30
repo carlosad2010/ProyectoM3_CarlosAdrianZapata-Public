@@ -89,7 +89,6 @@ export default async function handler(req, res) {
     }
     if (!response.ok) {
       console.error("Error de Gemini:", response.status, data?.error?.message);
-      console.error("Gemini 429:", data?.error?.message);
       return res
         .status(502)
         .json({ error: "No se pudo obtener respuesta del modelo" });

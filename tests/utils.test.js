@@ -5,7 +5,15 @@ import {
   isValidMessage,
   toGeminiContents,
   getReplyText,
+  formatTime,
 } from "../src/utils.js";
+
+describe("formatTime", () => {
+  it("muestra la hora con los minutos en dos dígitos", () => {
+    const timestamp = new Date(2026, 0, 1, 15, 5).getTime(); // 3:05 p. m. local
+    expect(formatTime(timestamp)).toMatch(/^3:05/);
+  });
+});
 
 describe("getMessageMeta", () => {
   it("devuelve la clase y el nombre del usuario", () => {

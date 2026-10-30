@@ -1,21 +1,26 @@
 import { chatView, initChat } from "./chat.js";
+import { initThemeToggle } from "./theme.js";
 
 function homeView() {
   return `
         <section class="home">
-            <div class="home__avatar" aria-hidden="true">🕷️</div>
-            <h1 class="home__title">Bienvenido a SpiderChat</h1>
-            <p class="home__intro">
-                Chatea con Peter Parker, el joven de Queens que se convirtió en Spider-Man
-                tras la picadura de una araña radiactiva. Habla como en los cómics: rápido,
-                con humor y siempre dispuesto a echarte una mano.
-            </p>
-            <ul class="home__traits" aria-label="Personalidad de Spider-Man">
-                <li class="trait"><span aria-hidden="true">🕸️</span> Ingenioso</li>
-                <li class="trait"><span aria-hidden="true">😄</span> Bromista</li>
-                <li class="trait"><span aria-hidden="true">💙</span> Empático</li>
-            </ul>
-            <a href="/chat" class="btn" data-link>Empezar a chatear</a>
+            <div class="home__media">
+                <img class="home__hero" src="/assets/spiderman-home.png" alt="Ilustración de Spider-Man con su traje rojo" width="236" height="419" />
+            </div>
+            <div class="home__content">
+                <h1 class="home__title">Bienvenido a SpiderChat</h1>
+                <p class="home__intro">
+                    Chatea con Peter Parker, el joven de Queens que se convirtió en Spider-Man
+                    tras la picadura de una araña radiactiva. Habla como en los cómics: rápido,
+                    con humor y siempre dispuesto a echarte una mano.
+                </p>
+                <ul class="home__traits" aria-label="Personalidad de Spider-Man">
+                    <li class="trait"><span aria-hidden="true">🕸️</span> Ingenioso</li>
+                    <li class="trait"><span aria-hidden="true">😄</span> Bromista</li>
+                    <li class="trait"><span aria-hidden="true">💙</span> Empático</li>
+                </ul>
+                <a href="/chat" class="btn" data-link>Empezar a chatear</a>
+            </div>
         </section>
     `;
 }
@@ -96,4 +101,5 @@ document.addEventListener("click", (event) => {
   navigateTo(link.getAttribute("href"));
 });
 window.addEventListener("popstate", render);
+initThemeToggle();
 render();

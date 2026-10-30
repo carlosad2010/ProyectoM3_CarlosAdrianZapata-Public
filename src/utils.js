@@ -15,6 +15,14 @@ export function getMessageMeta(role) {
   };
 }
 
+// Hora corta para el pie del mensaje, por ejemplo "3:45 p. m."
+export function formatTime(timestamp) {
+  return new Date(timestamp).toLocaleTimeString("es-CO", {
+    hour: "numeric",
+    minute: "2-digit",
+  });
+}
+
 // true si el texto tiene algo más que espacios
 export function isValidMessage(text) {
   return typeof text === "string" && text.trim().length > 0;
