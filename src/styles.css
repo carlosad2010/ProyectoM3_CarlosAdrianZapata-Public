@@ -567,6 +567,44 @@ body {
   margin-top: 0.4rem;
 }
 
+/* Pie de About con los datos del desarrollador */
+.about__footer {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border);
+  text-align: center;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+}
+
+.about__footer p {
+  margin: 0 0 0.25rem;
+}
+
+.about__footer strong {
+  color: var(--color-text);
+}
+
+.about__footer a {
+  display: inline-block;
+  padding: 0.5rem 0.25rem; /* área táctil más cómoda */
+  color: var(--color-text);
+  font-weight: 600;
+  text-underline-offset: 3px;
+}
+
+.about__footer a:focus-visible {
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 2px;
+}
+
+@media (hover: hover) {
+  .about__footer a:hover {
+    color: var(--color-primary);
+  }
+}
+
 .app-footer {
   padding: 0.4rem;
   text-align: center;

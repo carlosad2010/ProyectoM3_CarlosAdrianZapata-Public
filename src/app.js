@@ -52,6 +52,16 @@ function aboutView() {
         <ul>
             <li><strong>Con humor y sarcasmo:</strong> mientras pelea contra los villanos, Spider-Man no para de hablar, hacer chistes y soltar comentarios irónicos. Lo hace para disimular sus nervios y, al mismo tiempo, desquiciar a sus enemigos.</li>
         </ul>
+
+        <footer class="about__footer">
+            <p>Desarrollado por <strong>Carlos Adrian Zapata</strong></p>
+            <p>Estudiante de Full-Stack Developer · Henry · Proyecto Integrador M3</p>
+            <p>
+                <a href="https://github.com/carlosad2010" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <span aria-hidden="true">·</span>
+                <a href="https://github.com/carlosad2010/ProyectoM3_CarlosAdrianZapata-Public" target="_blank" rel="noopener noreferrer">Código del proyecto</a>
+            </p>
+        </footer>
     </section>
     `;
 }
