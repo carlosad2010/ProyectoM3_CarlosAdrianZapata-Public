@@ -131,8 +131,11 @@ body {
   transition: background-color 0.2s;
 }
 
-.theme-toggle:hover {
-  background-color: rgba(255, 255, 255, 0.12);
+/* hover solo con mouse: en pantallas táctiles se queda "pegado" al tocar */
+@media (hover: hover) {
+  .theme-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+  }
 }
 
 .theme-toggle:focus-visible {
@@ -171,9 +174,12 @@ body {
     opacity 0.2s;
 }
 
-.app-nav__link:hover {
-  background-color: rgba(255, 255, 255, 0.12);
-  opacity: 1;
+/* hover solo con mouse: en pantallas táctiles se queda "pegado" al tocar */
+@media (hover: hover) {
+  .app-nav__link:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+    opacity: 1;
+  }
 }
 
 .app-nav__link:focus-visible {
@@ -302,9 +308,12 @@ body {
   cursor: pointer;
 }
 
-.message__copy:hover {
-  background-color: var(--color-chat-bg);
-  color: var(--color-text);
+/* hover solo con mouse: en pantallas táctiles se queda "pegado" al tocar */
+@media (hover: hover) {
+  .message__copy:hover {
+    background-color: var(--color-chat-bg);
+    color: var(--color-text);
+  }
 }
 
 .message__copy:focus-visible {
@@ -408,8 +417,11 @@ body {
   cursor: pointer;
 }
 
-#send-button:hover {
-  background-color: var(--color-primary-dark);
+/* hover solo con mouse: en pantallas táctiles se queda "pegado" al tocar */
+@media (hover: hover) {
+  #send-button:hover {
+    background-color: var(--color-primary-dark);
+  }
 }
 
 #send-button:focus-visible {
@@ -522,8 +534,11 @@ body {
   transition: background-color 0.2s;
 }
 
-.btn:hover {
-  background-color: var(--color-primary-dark);
+/* hover solo con mouse: en pantallas táctiles se queda "pegado" al tocar */
+@media (hover: hover) {
+  .btn:hover {
+    background-color: var(--color-primary-dark);
+  }
 }
 
 .btn:focus-visible {

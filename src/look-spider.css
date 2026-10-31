@@ -107,9 +107,12 @@
     box-shadow 0.2s;
 }
 
-:root[data-theme="dark"] .btn:hover,
-:root[data-theme="dark"] .chat-send:hover {
-  box-shadow: 0 0 28px rgba(214, 40, 40, 0.7);
+/* hover solo con mouse: en pantallas táctiles se queda "pegado" al tocar */
+@media (hover: hover) {
+  :root[data-theme="dark"] .btn:hover,
+  :root[data-theme="dark"] .chat-send:hover {
+    box-shadow: 0 0 28px rgba(214, 40, 40, 0.7);
+  }
 }
 
 :root[data-theme="dark"] .app-nav__link[aria-current="page"] {

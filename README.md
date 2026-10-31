@@ -80,11 +80,19 @@ La portada entra completa sin scroll en cada tamaño. En celular y tablet la ima
 
 ![Home en escritorio](docs/screenshots/Home-Resolucion-PC.png)
 
-### Chat en modo oscuro
+### Chat en celular, en producción
+
+Conversación real con Gemini desde un teléfono, en la URL pública. Spider-Man responde en personaje y mantiene el contexto de la charla. Se ven las burbujas diferenciadas, la hora de cada mensaje, el botón para copiar las respuestas y el scroll automático al último mensaje.
+
+| Modo claro | Modo oscuro |
+|:---:|:---:|
+| <img src="docs/screenshots/chat-movil.jpg" alt="Chat en celular, modo claro" width="280" /> | <img src="docs/screenshots/chat-movil-modo-oscuro.jpg" alt="Chat en celular, modo oscuro" width="280" /> |
+
+### Chat en escritorio, modo oscuro
 
 El look Spider en modo oscuro: tarjeta con brillo rojo, el emblema en el menú y en el avatar, y la hora y el botón para copiar en cada respuesta de Spider-Man.
 
-![Chat en modo oscuro](docs/screenshots/chat-modo-oscuro.png)
+![Chat en escritorio, modo oscuro](docs/screenshots/chat-modo-oscuro.png)
 
 ### About en celular
 
